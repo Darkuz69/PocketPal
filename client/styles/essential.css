@@ -109,9 +109,16 @@ body {
   height: 60px;
 }
 
-#btn button{
+#btn button {
   display: flex;
   align-items: center;
+  padding: 1em;
+  border-radius: 50px;
+  background-color: white;
+  border: none;
+}
+
+#btn input {
   padding: 1em;
   border-radius: 50px;
   background-color: white;

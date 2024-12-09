@@ -71,7 +71,7 @@ $expensePercent = $total > 0 ? ($expense / $total) * 100 : 0;
     </div>
     <div class="navbar-link">
       <span id="logo">📜</span>
-      <a href=""><h3>Past Summary</h3></a>
+      <a href="history.php"><h3>Financial History</h3></a>
     </div>
     <div class="navbar-link" style="margin-top: 26em;">
       <span id="logo">❌</span>

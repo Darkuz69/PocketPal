@@ -35,7 +35,7 @@ require_once('../server/check_login.php');
     </div>
     <div class="navbar-link">
       <span id="logo">📜</span>
-      <a href=""><h3>Past Summary</h3></a>
+      <a href="history.php"><h3>Financial History</h3></a>
     </div>
     <div class="navbar-link" style="margin-top: 26em;">
       <span id="logo">❌</span>
