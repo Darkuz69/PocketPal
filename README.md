@@ -5,6 +5,26 @@
 ## Disclaimer 📝
 This is an academic project developed as part of a Web Development course in 2024. It is intended for educational purposes and demonstration of web programming skills.
 
+## Download Instructions 📦
+
+### Windows 🪟
+1. Open GitHub repository page
+2. Click "Code" green button
+3. Select "Download ZIP"
+4. Extract downloaded ZIP file
+5. Move extracted folder to `C:\xampp\htdocs`
+
+### Linux 🐧
+1. Open terminal
+2. Clone repository:
+   ```bash
+   git clone [repository-url]
+   ```
+3. Move project to `/opt/lampp/htdocs`:
+   ```bash
+   sudo mv PocketPal /opt/lampp/htdocs
+   ```
+
 ## Overview 📊
 
 PocketPal helps students track their finances with ease. Features include:
@@ -45,3 +65,6 @@ PocketPal helps students track their finances with ease. Features include:
 ## Credits 🏆
 - Developer: Darkuz69
 - Year: 2024 A.D.
+
+## License 📜
+[Add license information if applicable]
