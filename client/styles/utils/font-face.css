@@ -1,0 +1,29 @@
+@font-face {
+  font-family: Gabarito-Black;
+  src: url(../../fonts/Gabarito-Black.ttf);
+}
+
+@font-face {
+  font-family: Gabarito-Bold;
+  src: url(../../fonts/Gabarito-Bold.ttf);
+}
+
+@font-face {
+  font-family: Gabarito-ExtraBold;
+  src: url(../../fonts/Gabarito-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: Gabarito-Medium;
+  src: url(../../fonts/Gabarito-Medium.ttf);
+}
+
+@font-face {
+  font-family: Gabarito-Regular;
+  src: url(../../fonts/Gabarito-Regular.ttf);
+}
+
+@font-face {
+  font-family: Gabarito-SemiBold;
+  src: url(../../fonts/Gabarito-SemiBold.ttf);
+}

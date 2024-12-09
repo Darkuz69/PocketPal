@@ -1,0 +1,287 @@
+@import url(utils/utils.css);
+
+body {
+  background-color: #efefef;
+  display: flex;
+}
+
+.side-navbar {
+  justify-content: center;
+  float: left;
+
+  height: 100vh;
+  width: 20%;
+  padding: 2em 0;
+  background-color: indigo;
+}
+
+.side-navbar .navbar-ttl,
+.side-navbar .navbar-link {
+  color: white;
+  padding: 1em;
+  border-radius: 20px;
+}
+
+.navbar-link {
+  margin-left: 1em;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-link #logo {
+  border: 3px inset black;
+  background-color: white;
+  padding: 0.25em;
+  border-radius: 20px;
+  float: left;
+  margin-right: 0.5em;
+}
+
+#active #logo {
+  border: 3px inset white;
+  background-color: black;
+  padding: 0.25em;
+  float: left;
+  margin-right: 0.5em;
+}
+
+.side-navbar .navbar-ttl {
+  text-align: center;
+  padding-bottom: 2em;
+}
+
+.navbar-ttl h1 {
+  font-family: Gabarito-ExtraBold;
+}
+
+.navbar-link h2 {
+  font-family: Gabarito-SemiBold;
+}
+
+.navbar-link a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-link button {
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  color: white;
+  font-size: medium;
+}
+
+#active {
+  border-radius: 0;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  background-color: #efefef;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  border-right: none;
+}
+
+#active a{
+  color: black;
+}
+
+.main-content {
+  width: 100%;
+  height: 100vh;
+  padding: 2em;
+}
+
+.page-name {
+  width: 100%;
+  padding: 3em 2em;
+  color: white;
+  border-radius: 100px;
+  border: 2px solid black;
+  box-shadow: 0 2px 5px  #888888;
+}
+
+#img, #btn{
+  float: right;
+}
+
+#img img {
+  height: 60px;
+}
+
+#btn button{
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  border-radius: 50px;
+  background-color: white;
+  border: none;
+}
+
+#btn span {
+  float: left;
+  padding: 0.125em 0.5em;
+  border-radius: 20px;
+  margin-right: 0.5em;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4em;
+  height: 73%;
+}
+
+.main #main {
+  width: 63%;
+}
+
+.main #summary {
+  width: 35%;
+}
+
+.panel {
+  height: 100%;
+  background-color: white;
+  border-radius: 50px;
+  border: 2px solid black;
+  box-shadow: 0 2px 5px  #888888;
+  padding: 2em;
+}
+
+.overlay {
+  display: none;
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 2em;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: 0 2px 5px  #888888;
+  border-radius: 50px;
+}
+
+.overlay.active {
+  display: block;
+}
+
+.overlay .input-ttl {
+  margin-bottom: 1em;
+}
+
+.input-form {
+  margin-bottom: 0.5em;
+}
+
+.input-form input,
+.input-form select {
+  width: 100%;
+  font-size: 1.25em;
+  padding: 0.5em;
+  border-radius: 20px;
+  border: 2px black solid;
+}
+
+.btn-container {
+  margin-top: 1em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.btn-container button {
+  display: flex;
+  align-items: center;
+
+  border-radius: 20px;
+  padding: 0.5em;
+  color: white;
+  border: none;
+  box-shadow: 0 2px 5px  #888888;
+}
+
+.btn-container span {
+  border-radius: 20px;
+  border: 2px solid white;
+  padding: 0.25em 0.5em;
+  margin-right: 0.5em;
+}
+
+.blur {
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.category-container {
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  padding: 0.5em 0;
+}
+
+.category-container select,
+.category-container input {
+  padding: 0.25em;
+  margin: 0 0.25em;
+  border-radius: 20px;
+  background-color: #efefef;
+  border: 2px black solid;
+  box-shadow: 0 2px 5px  #888888;
+}
+
+.category-container #right {
+  margin-left: auto;
+  color: white;
+  background-color: green;
+}
+
+.expense-table {
+  height: 87%;
+  margin-top: 1em;
+  overflow: auto;
+}
+
+.expense-table table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.expense-table th,
+.expense-table td {
+  padding: 0.25em;
+}
+
+.expense-table th {
+  background-color: #dfdfdf;
+}
+
+.expense-table td {
+  border-bottom: 2px solid black;
+}
+
+.expense-table button {
+  padding: 0 0.25em;
+  border-radius: 20px;
+  color: white;
+}
+
+.expense-table #edit {
+  background-color: green;
+}
+
+.expense-table #delete {
+  background-color: red;
+}
+
+.summary-card {
+  background-color: #aaaaaa;
+  height: 17%;
+  border-radius: 30px;
+  padding: 0.95em;
+  margin-bottom: 8%;
+  border: 2px black solid;
+  box-shadow: 0 2px 5px  #888888;
+}

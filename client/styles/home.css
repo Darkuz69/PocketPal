@@ -1,0 +1,91 @@
+
+.card-container {
+  margin-top: 4em;
+  display: flex;
+  align-items: center;
+  justify-content:space-between ;
+
+  width: 100%;
+}
+
+.card-main {
+  width: 375px;
+  height: 135px;
+  padding: 1em;
+  border: black 2px solid;
+  background-color: white;
+  border-radius: 20px;
+  color: #333333;
+  box-shadow: 0 2px 5px  #888888;
+}
+
+.card-main #logo {
+  background-color: black;
+  border: #efefef 4px inset;
+  padding: 0.25em;
+  border-radius: 20px;
+}
+
+.card-main #logo {
+  float: right;
+}
+
+.card-main .progress-bar {
+  margin: 0.25em 0;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.card-main h1,
+.card-main h4 {
+  margin-bottom: 0.25em;
+}
+
+#allowance {
+  background-color: darkblue;
+}
+
+#expenses {
+  background-color: darkred;
+}
+
+.progress {
+  height: 100%;
+  padding: 0.25em;
+  border-radius: 20px;
+  margin: 0.25em 0;
+}
+
+#all-prog {
+  background-color: blue;
+}
+
+#exp-prog {
+  background-color: red;
+}
+
+.recents-container {  
+  margin-top: 4em;
+  align-items: center;
+
+  width: 100%;
+  padding: 1em;
+  background-color: darkviolet;
+  color: white;
+  border: black 2px solid;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px  #888888;
+}
+
+.recents-container table {
+  width: 100%;
+  margin-top: 1em;
+}
+
+.recents-container #right {
+  text-align: right;
+}
+
+.recents-container td {
+  border-bottom: 1px white solid;
+}
