@@ -65,6 +65,3 @@ PocketPal helps students track their finances with ease. Features include:
 ## Credits 🏆
 - Developer: Darkuz69
 - Year: 2024 A.D.
-
-## License 📜
-[Add license information if applicable]
