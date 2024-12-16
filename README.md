@@ -61,7 +61,3 @@ PocketPal helps students track their finances with ease. Features include:
 - Open XAMPP
 - Start Apache and MySQL services
 - Navigate to `localhost/PocketPal`
-
-## Credits 🏆
-- Developer: Darkuz69
-- Year: 2024 A.D.
