@@ -317,3 +317,9 @@ require_once('../server/check_login.php');
 
 </body>
 </html>
+
+<?php
+$_SESSION['Filter'] = '*';
+$_SESSION['Month'] = date('Y-m');
+session_write_close();
+?>

@@ -179,5 +179,6 @@ $expensePercent = $total > 0 ? ($expense / $total) * 100 : 0;
 </html>
 
 <?php
+$_SESSION['Month'] = date('Y-m');
 session_write_close();
 ?>
