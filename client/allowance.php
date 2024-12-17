@@ -60,8 +60,8 @@ require_once('../server/check_login.php');
 
     <div class="main">
       <div id="main" class="panel">
-        <form action="../server/allowance.php" class="category-container" method="POST">
-          <select name="filter">
+        <div class="category-container">
+          <select name="filter" onchange="displayChangeCategory(this.value, 'allowance')">
             <option value="*">All Items</option>
             <?php
             $stmt = $conn->prepare('SELECT * FROM AllowanceSource');
@@ -77,11 +77,10 @@ require_once('../server/check_login.php');
             }
             ?>
           </select>
-          <input type="month" name="month" value="<?=$_SESSION['Month']?>">
-          <input type="submit" name="confirm-filter" value="Activate Filter" id="right">
-        </form>
+          <input type="month" name="month" value="<?=$_SESSION['Month']?>" onchange="displayChangeMonth(this.value, 'allowance')">
+        </div>
         <div class="expense-table">
-          <table>
+          <table id="table">
             <tr>
               <th><h3>Date</h3></th>
               <th><h3>Category</h3></th>

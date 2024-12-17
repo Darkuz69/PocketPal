@@ -127,15 +127,71 @@ function getLastAmount(mysqli $conn, int $id) {
   return $result->fetch_assoc()['ExpenseAmount'];
 }
 
+function displayCategory(mysqli $conn) {
+  $query =  "SELECT Expense.ExpenseID, Expense.Description, Expense.ExpenseAmount, Expense.ExpenseDate, Expense.ExpenseCategoryID, ExpenseCategory.CategoryName FROM Expense INNER JOIN ExpenseCategory ON Expense.ExpenseCategoryID = ExpenseCategory.ExpenseCategoryID WHERE AccountID=? AND DATE_FORMAT(ExpenseDate, '%Y-%m')=?";
+  if($_SESSION['Filter'] != '*') $query .= " AND Expense.ExpenseCategoryID=?";
+  $query .= " ORDER BY Expense.ExpenseDate DESC";
+
+  $stmt = $conn->prepare($query);
+  if($_SESSION['Filter'] != '*') {
+    if(!$stmt->bind_param("isi", $_SESSION['AccountID'], $_SESSION['Month'], $_SESSION['Filter'])){
+      showMessage("Binding parameters failed: " . $stmt->error);
+      $stmt->close();
+      return false;
+    }
+  } else {
+    if(!$stmt->bind_param("is", $_SESSION['AccountID'], $_SESSION['Month'])){
+      showMessage("Binding parameters failed: " . $stmt->error);
+      $stmt->close();
+      return false;
+    }
+  }
+
+  // Execute the statement
+  if(!$stmt->execute()) {
+    showMessage("Execution failed: " . $stmt->error);
+    $stmt->close();
+    return false;
+  }
+
+  $result = $stmt->get_result();
+  while($row = $result->fetch_assoc()) {
+    $date = new DateTime($row['ExpenseDate']);
+
+    echo '<tr>';
+    echo '  <td>'.$date->format('F j, Y @ h:i A').'</td>';
+    echo '  <td>'.$row['CategoryName'].'</td>';
+    echo '  <td>'.$row['Description'].'</td>';
+    echo '  <td>₱ '.$row['ExpenseAmount'].'</td>';
+    echo '  <td>
+              <button id="edit" onclick="editOverlay('.$row['ExpenseID'].', \''.$row['Description'].'\', '.$row['ExpenseCategoryID'].', '.$row['ExpenseAmount'].')">Edit</button>
+              <button id="delete" onclick="deleteOverlay('.$row['ExpenseID'].')">Delete</button>
+            </td>';
+    echo '</tr>';
+  }
+
+  $_SESSION['Filter'] = '*';
+  $_SESSION['Month'] = date('Y-m');
+  session_write_close();
+
+  return true;
+}
+
 if(isPostRequest()) {
   $data = sanitizeUserInput($_POST);
 
-  if(isset($data['confirm-filter'])) {
+  if(isset($data['filter'])) {
     session_start();
     if($data['filter'] != '*') $_SESSION['Filter'] = (int)$data['filter'];
     else $_SESSION['Filter'] = $data['filter'];
+
+    displayCategory($conn);
+    session_write_close();
+  } else if(isset($data['month'])) {
+    session_start();
     $_SESSION['Month'] = $data['month'];
 
+    displayCategory($conn);
     session_write_close();
   } else if(isset($data['confirm'])) {
     $expense = array(

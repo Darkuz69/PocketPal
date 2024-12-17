@@ -34,3 +34,49 @@ function closeOverlay() {
   document.getElementById('edit-overlay').classList.remove('active');
   document.getElementById('delete-overlay').classList.remove('active');
 }
+
+function displayChangeCategory(str, state) {
+  if(str == "") {
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if(this.readyState == 4 && this.status == 200) {
+        var table = document.getElementById('table');
+        while(table.rows.length > 1) {
+          table.deleteRow(1);
+        }
+
+        table.innerHTML += this.responseText;
+      }
+    };
+
+    if(state == "expense") xmlhttp.open("POST", "http://localhost/PocketPal/server/expenses.php", true);
+    else if(state == "allowance") xmlhttp.open("POST", "http://localhost/PocketPal/server/allowance.php", true);
+    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xmlhttp.send("filter=" + encodeURIComponent(str));
+  }
+}
+
+function displayChangeMonth(str) {
+  if(str == "") {
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if(this.readyState == 4 && this.status == 200) {
+        var table = document.getElementById('table');
+        while(table.rows.length > 1) {
+          table.deleteRow(1);
+        }
+
+        table.innerHTML += this.responseText;
+      }
+    };
+
+    if(state == "expense") xmlhttp.open("POST", "http://localhost/PocketPal/server/expenses.php", true);
+    else if(state == "allowance") xmlhttp.open("POST", "http://localhost/PocketPal/server/allowance.php", true);
+    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xmlhttp.send("month=" + encodeURIComponent(str));
+  }
+}

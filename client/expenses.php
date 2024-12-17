@@ -63,8 +63,8 @@ session_start();
 
     <div class="main">
       <div id="main" class="panel">
-        <form action="../server/expenses.php" class="category-container" method="POST">
-          <select name="filter">
+        <div class="category-container">
+          <select name="filter" onchange="displayChangeCategory(this.value, 'expense')">
             <option value="*">All Items</option>
             <?php
             $stmt = $conn->prepare('SELECT * FROM ExpenseCategory');
@@ -80,11 +80,10 @@ session_start();
             }
             ?>
           </select>
-          <input type="month" name="month" value="<?=$_SESSION['Month']?>">
-          <input type="submit" name="confirm-filter" value="Activate Filter" id="right">
-        </form>
+          <input type="month" name="month" value="<?=$_SESSION['Month']?>" onchange="displayChangeMonth(this.value, 'expense')">
+        </div>
         <div class="expense-table">
-          <table>
+          <table id="table">
             <tr>
               <th><h3>Date</h3></th>
               <th><h3>Category</h3></th>
@@ -134,6 +133,7 @@ session_start();
                       </td>';
               echo '</tr>';
             }
+
             ?>
           </table>
         </div>
@@ -205,6 +205,7 @@ session_start();
           }
   
           $result = $stmt->get_result()->fetch_assoc()['CategoryName'] ?? 'None';
+
           ?>
           <h2><?=$result?></h2>
         </div>
@@ -323,7 +324,4 @@ session_start();
 </html>
 
 <?php
-$_SESSION['Filter'] = '*';
-$_SESSION['Month'] = date('Y-m');
-session_write_close();
 ?>
